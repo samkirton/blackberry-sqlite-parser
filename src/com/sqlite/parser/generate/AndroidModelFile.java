@@ -48,6 +48,8 @@ public class AndroidModelFile extends Generation {
 			fileOutput += StringHelper.newLine(2);
 			fileOutput += "import java.util.HashMap;";
 			fileOutput += StringHelper.newLine(2);
+			fileOutput += "import android.content.ContentValues;";
+			fileOutput += StringHelper.newLine(2);
 			fileOutput += "public class " + fileName + " extends BaseModel {";
 			fileOutput += StringHelper.newLine(1);
 			fileOutput += buildClassVariables(sqlColumnCollection);
