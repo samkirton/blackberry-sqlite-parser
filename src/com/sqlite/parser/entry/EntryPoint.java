@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.sqlite.parser.generate.AndroidModelFile;
 import com.sqlite.parser.generate.BlackBerryModelFile;
 import com.sqlite.parser.parse.SQLParser;
 import com.sqlite.parser.parse.SQLSchemaObjectRepresentation;
@@ -73,9 +74,12 @@ public class EntryPoint {
 			SQLSchemaObjectRepresentation sqlSchemaObjectRepresentation) {
 		
 		String blackBerryDir = rootDir + "generated" + pathSeparator + "blackberry" + pathSeparator + "model" + pathSeparator;
-		
 		BlackBerryModelFile blackBerryModelFile = new BlackBerryModelFile(blackBerryDir, PACKAGE_NAME, sqlSchemaObjectRepresentation);
 		blackBerryModelFile.buildFileOutput();
+		
+		String androidDir = rootDir + "generated" + pathSeparator + "android" + pathSeparator + "model" + pathSeparator;
+		AndroidModelFile androidModelFile = new AndroidModelFile(androidDir, PACKAGE_NAME, sqlSchemaObjectRepresentation);
+		androidModelFile.buildFileOutput();
 		
 		System.out.println(StringHelper.CONSOLE_START_SYMBOL + "BlackBerry code generated");
 	}
