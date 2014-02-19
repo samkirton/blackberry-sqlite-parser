@@ -45,9 +45,7 @@ public class AndroidModelFile extends Generation {
 			fileOutput += "package " + packageName + ";";
 			fileOutput += StringHelper.newLine(2);
 			fileOutput += "import com.app.sqlite.base.BaseModel;";
-			fileOutput += StringHelper.newLine(1);
-			fileOutput += "import com.app.sqlite.base.DatabaseField;";
-			fileOutput += StringHelper.newLine(1);
+			fileOutput += StringHelper.newLine(2);
 			fileOutput += "import java.util.HashMap;";
 			fileOutput += StringHelper.newLine(2);
 			fileOutput += "public class " + fileName + " extends BaseModel {";
@@ -58,7 +56,7 @@ public class AndroidModelFile extends Generation {
 			fileOutput += StringHelper.newLine(1);
 			fileOutput += StringHelper.tab(1) + "// The SQL provider uses reflection to retrieve the table name from this variable";
 			fileOutput += StringHelper.newLine(1);
-			fileOutput += StringHelper.tab(1) + "public static final String TABLE_NAME = \"" + tableName + "\"";
+			fileOutput += StringHelper.tab(1) + "public static final String TABLE_NAME = \"" + tableName + "\";";
 			fileOutput += StringHelper.newLine(2);
 			fileOutput += buildClassProperties(sqlColumnCollection);
 			fileOutput += StringHelper.newLine(1);
@@ -238,15 +236,15 @@ public class AndroidModelFile extends Generation {
 		String constantType = null;
 		
 		if (type.equals(StringHelper.SQL_TYPE_VARCHAR)) {
-			constantType = "Cursor.FIELD_TYPE_STRING";
+			constantType = "BaseModel.FIELD_TYPE_STRING";
 		} else if (type.equals(StringHelper.SQL_TYPE_LONG)) {
-			constantType = "Cursor.FIELD_TYPE_LONG";
+			constantType = "BaseModel.FIELD_TYPE_LONG";
 		} else if (type.equals(StringHelper.SQL_TYPE_INTEGER)) {
-			constantType = "Cursor.FIELD_TYPE_INTEGER";
+			constantType = "BaseModel.FIELD_TYPE_INTEGER";
 		} else if (type.equals(StringHelper.SQL_TYPE_FLOAT)) {
-			constantType = "Cursor.FIELD_TYPE_FLOAT";
+			constantType = "BaseModel.FIELD_TYPE_FLOAT";
 		} else {
-			constantType = "Cursor.FIELD_TYPE_STRING";
+			constantType = "BaseModel.FIELD_TYPE_STRING";
 		}
 		
 		return constantType;
