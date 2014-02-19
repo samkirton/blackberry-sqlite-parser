@@ -56,21 +56,15 @@ public class AndroidModelFile extends Generation {
 			fileOutput += StringHelper.newLine(1);
 			fileOutput += buildClassConstants(sqlColumnCollection);
 			fileOutput += StringHelper.newLine(1);
+			fileOutput += StringHelper.tab(1) + "// The SQL provider uses reflection to retrieve the table name from this variable";
+			fileOutput += StringHelper.newLine(1);
+			fileOutput += StringHelper.tab(1) + "public static final String TABLE_NAME = \"" + tableName + "\"";
+			fileOutput += StringHelper.newLine(2);
 			fileOutput += buildClassProperties(sqlColumnCollection);
 			fileOutput += StringHelper.newLine(1);
 			fileOutput += buildHashmapMethod(sqlColumnCollection);
 			fileOutput += StringHelper.newLine(1);
-			fileOutput += buildContentValueMethod(sqlColumnCollection);
-			fileOutput += StringHelper.newLine(1);
-			fileOutput += StringHelper.tab(1) + "@Override";
-			fileOutput += StringHelper.newLine(1);
-			fileOutput += StringHelper.tab(1) + "public String getTableName() {";
-			fileOutput += StringHelper.newLine(1);
-			fileOutput += StringHelper.tab(2) + "return \"" + tableName + "\";";
-			fileOutput += StringHelper.newLine(1);
-			fileOutput += StringHelper.tab(1) + "}";
-			fileOutput += StringHelper.newLine(1);
-			
+			fileOutput += buildContentValueMethod(sqlColumnCollection);			
 			fileOutput += "}";
 			
 			// Create namespace folder if it does not already exist
