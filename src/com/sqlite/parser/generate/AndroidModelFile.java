@@ -10,7 +10,7 @@ import com.sqlite.parser.parse.SQLTable;
 import com.sqlite.parser.utils.StringHelper;
 
 /**
- * Generate the BlackBerry model file
+ * Generate the Android model file
  * @author samkirton
  */
 public class AndroidModelFile extends Generation {
