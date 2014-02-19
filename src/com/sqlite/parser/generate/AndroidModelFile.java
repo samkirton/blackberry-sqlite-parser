@@ -236,15 +236,15 @@ public class AndroidModelFile extends Generation {
 		String constantType = null;
 		
 		if (type.equals(StringHelper.SQL_TYPE_VARCHAR)) {
-			constantType = "BaseModel.FIELD_TYPE_STRING";
+			constantType = "BaseModel.FIELD_STRING";
 		} else if (type.equals(StringHelper.SQL_TYPE_LONG)) {
-			constantType = "BaseModel.FIELD_TYPE_LONG";
+			constantType = "BaseModel.FIELD_LONG";
 		} else if (type.equals(StringHelper.SQL_TYPE_INTEGER)) {
-			constantType = "BaseModel.FIELD_TYPE_INTEGER";
+			constantType = "BaseModel.FIELD_INTEGER";
 		} else if (type.equals(StringHelper.SQL_TYPE_FLOAT)) {
-			constantType = "BaseModel.FIELD_TYPE_FLOAT";
+			constantType = "BaseModel.FIELD_FLOAT";
 		} else {
-			constantType = "BaseModel.FIELD_TYPE_STRING";
+			constantType = "BaseModel.FIELD_STRING";
 		}
 		
 		return constantType;
