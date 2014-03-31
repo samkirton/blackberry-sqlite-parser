@@ -81,7 +81,7 @@ public class EntryPoint {
 		AndroidModelFile androidModelFile = new AndroidModelFile(androidDir, PACKAGE_NAME, sqlSchemaObjectRepresentation);
 		androidModelFile.buildFileOutput();
 		
-		System.out.println(StringHelper.CONSOLE_START_SYMBOL + "BlackBerry code generated");
+		System.out.println(StringHelper.CONSOLE_START_SYMBOL + "SQLite code generated");
 	}
 
 	/**

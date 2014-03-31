@@ -36,11 +36,7 @@ public class AndroidModelFile extends Generation {
 			String tableName = sqlTable.getTableName();
 			String fileName = tableName + "Model";
 			
-			// ^SQLColumn[]
 			ArrayList<SQLColumn> sqlColumnCollection = sqlTable.getColumns();
-			for (int x = 0; x < sqlColumnCollection.size(); x++) {
-				
-			}
 			
 			fileOutput += "package " + packageName + ";";
 			fileOutput += StringHelper.newLine(2);
@@ -91,12 +87,9 @@ public class AndroidModelFile extends Generation {
 			SQLColumn sqlColumn = sqlColumnCollection.get(i);
 			String name = sqlColumn.getName();
 			String type = sqlColumn.getType();
-			boolean isPrimaryKey = sqlColumn.isPrimaryKey();
 			
-			if (!isPrimaryKey) {
-				classVariables += StringHelper.tab(1) + "private " + StringHelper.convertSQLiteTypeToJavaType(type) + " " + name + ";";
-				classVariables += StringHelper.newLine(1);
-			}
+			classVariables += StringHelper.tab(1) + "private " + StringHelper.convertSQLiteTypeToJavaType(type) + " " + name + ";";
+			classVariables += StringHelper.newLine(1);
 		}
 		
 		return classVariables;
@@ -137,23 +130,20 @@ public class AndroidModelFile extends Generation {
 			SQLColumn sqlColumn = sqlColumnCollection.get(i);
 			String name = sqlColumn.getName();
 			String type = sqlColumn.getType();
-			boolean isPrimaryKey = sqlColumn.isPrimaryKey();
 			
-			if (!isPrimaryKey) {
-				classProperties += StringHelper.tab(1) + "public " + StringHelper.convertSQLiteTypeToJavaType(type) + " get" + StringHelper.firstLetterToCase(name, true) + "() {";
-				classProperties += StringHelper.newLine(1);
-				classProperties += StringHelper.tab(2) + "return " + name + ";";
-				classProperties += StringHelper.newLine(1);
-				classProperties += StringHelper.tab(1) + "}";
-				classProperties += StringHelper.newLine(2);
-				
-				classProperties += StringHelper.tab(1) + "public void set" + StringHelper.firstLetterToCase(name, true) + "(" + StringHelper.convertSQLiteTypeToJavaType(type) + " newVal) {";
-				classProperties += StringHelper.newLine(1);
-				classProperties += StringHelper.tab(2) + name + " = newVal;";
-				classProperties += StringHelper.newLine(1);
-				classProperties += StringHelper.tab(1) + "}";
-				classProperties += StringHelper.newLine(1);
-			}
+			classProperties += StringHelper.tab(1) + "public " + StringHelper.convertSQLiteTypeToJavaType(type) + " get" + StringHelper.firstLetterToCase(name, true) + "() {";
+			classProperties += StringHelper.newLine(1);
+			classProperties += StringHelper.tab(2) + "return " + name + ";";
+			classProperties += StringHelper.newLine(1);
+			classProperties += StringHelper.tab(1) + "}";
+			classProperties += StringHelper.newLine(2);
+			
+			classProperties += StringHelper.tab(1) + "public void set" + StringHelper.firstLetterToCase(name, true) + "(" + StringHelper.convertSQLiteTypeToJavaType(type) + " newVal) {";
+			classProperties += StringHelper.newLine(1);
+			classProperties += StringHelper.tab(2) + name + " = newVal;";
+			classProperties += StringHelper.newLine(1);
+			classProperties += StringHelper.tab(1) + "}";
+			classProperties += StringHelper.newLine(1);
 		}
 		
 		return classProperties;
@@ -245,6 +235,8 @@ public class AndroidModelFile extends Generation {
 			constantType = "BaseModel.FIELD_INTEGER";
 		} else if (type.equals(StringHelper.SQL_TYPE_FLOAT)) {
 			constantType = "BaseModel.FIELD_FLOAT";
+		} else if (type.equals(StringHelper.SQL_TYPE_BLOB)) {
+			constantType = "BaseModel.FIELD_BLOB";
 		} else {
 			constantType = "BaseModel.FIELD_STRING";
 		}
