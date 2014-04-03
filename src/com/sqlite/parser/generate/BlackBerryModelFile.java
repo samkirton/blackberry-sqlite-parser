@@ -185,8 +185,8 @@ public class BlackBerryModelFile extends Generation {
 			constantType = "TYPE_LONG";
 		} else if (type.equals(StringHelper.SQL_TYPE_INTEGER)) {
 			constantType = "TYPE_INTEGER";
-		} else if (type.equals(StringHelper.SQL_TYPE_FLOAT)) {
-			constantType = "TYPE_FLOAT";
+		} else if (type.equals(StringHelper.SQL_TYPE_REAL)) {
+			constantType = "TYPE_DOUBLE";
 		} else {
 			constantType = "TYPE_STRING";
 		}

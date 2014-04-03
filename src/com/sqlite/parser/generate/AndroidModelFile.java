@@ -106,12 +106,9 @@ public class AndroidModelFile extends Generation {
 		for (int i = 0; i < sqlColumnCollection.size(); i++) {
 			SQLColumn sqlColumn = sqlColumnCollection.get(i);
 			String name = sqlColumn.getName();
-			boolean isPrimaryKey = sqlColumn.isPrimaryKey();
 			
-			if (!isPrimaryKey) {
-				classConstants += StringHelper.tab(1) + "private static final String COLUMN_" + name.toUpperCase() + " = \"" + name + "\";";
-				classConstants += StringHelper.newLine(1);
-			}
+			classConstants += StringHelper.tab(1) + "private static final String COLUMN_" + name.toUpperCase() + " = \"" + name + "\";";
+			classConstants += StringHelper.newLine(1);
 		}
 		
 		return classConstants;
@@ -168,12 +165,9 @@ public class AndroidModelFile extends Generation {
 			SQLColumn sqlColumn = sqlColumnCollection.get(i);
 			String name = sqlColumn.getName();
 			String type = sqlColumn.getType();
-			boolean isPrimaryKey = sqlColumn.isPrimaryKey();
 			
-			if (!isPrimaryKey) {
-				hashmapMethod += StringHelper.tab(2) + "modelColumns.put(COLUMN_" + name.toUpperCase() + ", " + getBaseModelDataTypeConstant(type) + ");";
-				hashmapMethod += StringHelper.newLine(1);
-			}
+			hashmapMethod += StringHelper.tab(2) + "modelColumns.put(COLUMN_" + name.toUpperCase() + ", " + getBaseModelDataTypeConstant(type) + ");";
+			hashmapMethod += StringHelper.newLine(1);
 		}
 		
 		hashmapMethod += StringHelper.tab(2) + "return modelColumns;";
@@ -233,8 +227,8 @@ public class AndroidModelFile extends Generation {
 			constantType = "BaseModel.FIELD_LONG";
 		} else if (type.equals(StringHelper.SQL_TYPE_INTEGER)) {
 			constantType = "BaseModel.FIELD_INTEGER";
-		} else if (type.equals(StringHelper.SQL_TYPE_FLOAT)) {
-			constantType = "BaseModel.FIELD_FLOAT";
+		} else if (type.equals(StringHelper.SQL_TYPE_REAL)) {
+			constantType = "BaseModel.FIELD_DOUBLE";
 		} else if (type.equals(StringHelper.SQL_TYPE_BLOB)) {
 			constantType = "BaseModel.FIELD_BLOB";
 		} else {

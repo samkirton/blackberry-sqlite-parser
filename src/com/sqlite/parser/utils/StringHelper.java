@@ -10,15 +10,15 @@ public class StringHelper {
 	private final static String JAVA_TYPE_STRING = "String";
 	private final static String JAVA_TYPE_INTEGER = "int";
 	private final static String JAVA_TYPE_LONG = "long";
-	private final static String JAVA_TYPE_FLOAT = "float";
+	private final static String JAVA_TYPE_DOUBLE = "double";
 	private final static String JAVA_TYPE_OBJECT_INTEGER = "Integer";
 	private final static String JAVA_TYPE_OBJECT_LONG = "Long";
-	private final static String JAVA_TYPE_OBJECT_FLOAT = "Float";
+	private final static String JAVA_TYPE_OBJECT_DOUBLE = "Double";
 	private final static String JAVA_TYPE_BYTE_ARRAY = "byte[]";
 	public final static String SQL_TYPE_VARCHAR = "varchar";
 	public final static String SQL_TYPE_INTEGER = "integer";
 	public final static String SQL_TYPE_LONG = "long";
-	public final static String SQL_TYPE_FLOAT = "float";
+	public final static String SQL_TYPE_REAL = "real";
 	public final static String SQL_TYPE_BLOB = "blob";
 	private final static String EMPTY = "";
 	
@@ -87,8 +87,8 @@ public class StringHelper {
 			javaType = JAVA_TYPE_INTEGER;
 		} else if (sqliteType.equals(SQL_TYPE_LONG)) {
 			javaType = JAVA_TYPE_LONG;
-		} else if (sqliteType.equals(SQL_TYPE_FLOAT)) {
-			javaType = JAVA_TYPE_FLOAT;
+		} else if (sqliteType.equals(SQL_TYPE_REAL)) {
+			javaType = JAVA_TYPE_DOUBLE;
 		} else if (sqliteType.equals(SQL_TYPE_BLOB)) {
 			javaType = JAVA_TYPE_BYTE_ARRAY;
 		} else {
@@ -112,8 +112,8 @@ public class StringHelper {
 			javaType = JAVA_TYPE_OBJECT_INTEGER;
 		} else if (sqliteType.equals(SQL_TYPE_LONG)) {
 			javaType = JAVA_TYPE_OBJECT_LONG;
-		} else if (sqliteType.equals(SQL_TYPE_FLOAT)) {
-			javaType = JAVA_TYPE_OBJECT_FLOAT;
+		} else if (sqliteType.equals(SQL_TYPE_REAL)) {
+			javaType = JAVA_TYPE_OBJECT_DOUBLE;
 		} else {
 			javaType = JAVA_TYPE_STRING;
 		}
