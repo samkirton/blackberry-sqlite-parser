@@ -1,6 +1,6 @@
-java-sqlite-parser
+blackberry-sqlite-parser
 ==================
-A tool that takes a SQLite database as an input and outputs a series of model files that represent the database. The model files can be used with the blackberry-sqlite-provider and android-sqlite-provider libraries found at http://github/samkirton/
+A tool that takes a SQLite database as an input and outputs a series of model files that represent the database. The model files can be used with the blackberry-sqlite-provider library found at http://github/samkirton/
 
 To run the parser you must change the constants in com.sqlite.parser.entry EntryPoint.java file
 
